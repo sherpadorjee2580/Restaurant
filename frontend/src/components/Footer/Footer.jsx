@@ -26,18 +26,18 @@ const Footer = () => {
             </h4>
             <div className="flex flex-col space-y-2">
               {[
-                "About Us",
-                "Contact Us",
-                "Reservation",
-                "Privacy Policy",
-                "Terms & Condition",
+                { name: "About Us", link: "/about" },
+                { name: "Contact Us", link: "/contact" },
+                { name: "Reservation", link: "/book" },
+                { name: "Privacy Policy", link: "/" },
+                { name: "Terms & Condition", link: "/" },
               ].map((link) => (
                 <a
-                  key={link}
-                  href="#"
+                  key={link.name}
+                  href={link.link}
                   className="text-white/70 hover:text-white transition-all duration-300 hover:tracking-widest before:content-['>'] before:mr-2"
                 >
-                  {link}
+                  {link.name}
                 </a>
               ))}
             </div>
@@ -53,14 +53,14 @@ const Footer = () => {
             </h4>
             <div className="space-y-3 text-white/70">
               <p className="flex items-center">
-                <FaMapMarkerAlt className="mr-3 text-white" /> 123 Street, New
-                York, USA
+                <FaMapMarkerAlt className="mr-3 text-white" /> Jiri-05, Dolakha
               </p>
               <p className="flex items-center">
-                <FaPhoneAlt className="mr-3 text-white" /> +012 345 67890
+                <FaPhoneAlt className="mr-3 text-white" /> +977 9812345681
               </p>
               <p className="flex items-center">
-                <FaEnvelope className="mr-3 text-white" /> info@example.com
+                <FaEnvelope className="mr-3 text-white" />{" "}
+                sherpakitchen@gmail.com
               </p>
               <div className="flex pt-4 space-x-2">
                 {[FaTwitter, FaFacebookF, FaYoutube, FaLinkedinIn].map(

@@ -1,4 +1,6 @@
 import React from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import {
   FaUtensils,
   FaBars,
@@ -18,49 +20,7 @@ const About = () => {
     <div className="bg-white p-0 font-sans text-gray-700">
       {/* Navbar & Hero Start */}
       <div className="relative p-0 bg-gray-900">
-        <nav className="flex items-center justify-between px-6 lg:px-12 py-4 lg:py-0 bg-gray-900 text-white">
-          <a href="/" className="flex items-center p-0">
-            <h1 className="text-orange-500 text-3xl font-bold m-0 flex items-center">
-              <FaUtensils className="mr-3" /> Restoran
-            </h1>
-          </a>
-
-          <button className="lg:hidden text-white border border-gray-700 px-3 py-1 rounded">
-            <FaBars />
-          </button>
-
-          <div className="hidden lg:flex items-center space-x-6 ml-auto">
-            <div className="flex py-6 space-x-6 pr-6">
-              <a href="/" className="hover:text-orange-500 transition">
-                Home
-              </a>
-              <a href="about" className="text-orange-500">
-                About
-              </a>
-              <a href="/service" className="hover:text-orange-500 transition">
-                Service
-              </a>
-              <a href="/menu" className="hover:text-orange-500 transition">
-                Menu
-              </a>
-              <div className="relative group">
-                <button className="hover:text-orange-500 transition">
-                  Pages
-                </button>
-                {/* Dropdown would go here */}
-              </div>
-              <a href="/contact" className="hover:text-orange-500 transition">
-                Contact
-              </a>
-            </div>
-            <a
-              href="#"
-              className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded font-semibold transition"
-            >
-              Book A Table
-            </a>
-          </div>
-        </nav>
+        <Navbar />
 
         {/* Hero Section */}
         <div className="py-20 bg-gray-900 text-center mb-12">
@@ -95,24 +55,24 @@ const About = () => {
             <div className="grid grid-cols-2 gap-3">
               <img
                 className="rounded w-full transition-transform hover:scale-105 duration-300"
-                src="img/about-1.jpg"
+                src="about-1.jpg"
                 alt="About 1"
               />
               <img
                 className="rounded w-3/4 mt-[25%] transition-transform hover:scale-105 duration-300"
-                src="img/about-2.jpg"
+                src="about-2.jpg"
                 alt="About 2"
               />
               <div className="flex justify-end">
                 <img
                   className="rounded w-3/4 transition-transform hover:scale-105 duration-300"
-                  src="img/about-3.jpg"
+                  src="about-3.jpg"
                   alt="About 3"
                 />
               </div>
               <img
                 className="rounded w-full transition-transform hover:scale-105 duration-300"
-                src="img/about-4.jpg"
+                src="about-4.jpg"
                 alt="About 4"
               />
             </div>
@@ -187,7 +147,7 @@ const About = () => {
             >
               <div className="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-8 border-gray-50">
                 <img
-                  src={`img/team-${member}.jpg`}
+                  src={`team-${member}.jpg`}
                   alt="Chef"
                   className="w-full h-full object-cover"
                 />
@@ -220,131 +180,7 @@ const About = () => {
       </div>
 
       {/* Footer Start */}
-      <footer className="bg-gray-900 text-gray-300 pt-16 mt-16">
-        <div className="container mx-auto px-4 pb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div>
-              <h4 className="text-orange-500 font-pacifico text-xl mb-6">
-                Company
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="hover:text-white transition">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition">
-                    Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition">
-                    Reservation
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition">
-                    Privacy Policy
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-orange-500 font-pacifico text-xl mb-6">
-                Contact
-              </h4>
-              <p className="mb-2 flex items-center">
-                <FaMapMarkerAlt className="mr-3 text-orange-500" /> 123 Street,
-                NY, USA
-              </p>
-              <p className="mb-2 flex items-center">
-                <FaPhoneAlt className="mr-3 text-orange-500" /> +012 345 67890
-              </p>
-              <p className="mb-4 flex items-center">
-                <FaEnvelope className="mr-3 text-orange-500" /> info@example.com
-              </p>
-              <div className="flex space-x-2">
-                <a
-                  href="#"
-                  className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-gray-900 transition"
-                >
-                  <FaTwitter />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-gray-900 transition"
-                >
-                  <FaFacebookF />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-gray-900 transition"
-                >
-                  <FaYoutube />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-gray-900 transition"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-orange-500 font-pacifico text-xl mb-6">
-                Opening
-              </h4>
-              <h5 className="text-white font-semibold">Monday - Saturday</h5>
-              <p className="mb-4">09AM - 09PM</p>
-              <h5 className="text-white font-semibold">Sunday</h5>
-              <p>10AM - 08PM</p>
-            </div>
-            <div>
-              <h4 className="text-orange-500 font-pacifico text-xl mb-6">
-                Newsletter
-              </h4>
-              <p className="mb-4">
-                Subscribe for the latest updates and offers.
-              </p>
-              <div className="relative">
-                <input
-                  type="text"
-                  className="w-full bg-white rounded py-3 pl-4 pr-24 text-gray-900 focus:outline-none"
-                  placeholder="Your email"
-                />
-                <button className="absolute right-2 top-2 bg-orange-500 text-white px-4 py-1.5 rounded">
-                  SignUp
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="border-t border-gray-800 py-6 text-sm">
-          <div className="container mx-auto px-4 flex flex-wrap justify-between items-center">
-            <p className="w-full md:w-auto text-center md:text-left mb-4 md:mb-0">
-              &copy;{" "}
-              <a href="#" className="text-orange-500">
-                Your Site Name
-              </a>
-              , All Rights Reserved.
-            </p>
-            <div className="w-full md:w-auto text-center md:text-right space-x-4">
-              <a href="#" className="hover:text-white">
-                Home
-              </a>
-              <a href="#" className="hover:text-white">
-                Cookies
-              </a>
-              <a href="#" className="hover:text-white">
-                Help
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Back to Top */}
       <button className="fixed bottom-10 right-10 bg-orange-500 text-white p-4 rounded-lg shadow-lg hover:bg-orange-600 transition animate-bounce">
