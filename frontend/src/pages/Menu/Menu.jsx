@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+
 import { Link } from "react-router-dom";
 import {
   FaUtensils,
@@ -27,44 +30,27 @@ const Menu = () => {
   return (
     <div className="bg-white">
       {/* Navbar */}
-      <nav className="bg-gray-900 text-white px-6 py-4 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-orange-500 flex items-center gap-2">
-          <FaUtensils /> Restoran
-        </h1>
-
-        <ul className="hidden lg:flex gap-6">
-          {[
-            { name: "Home", path: "/" },
-            { name: "About", path: "/about" },
-            { name: "Service", path: "/service" },
-            { name: "Menu", path: "/menu" },
-            { name: "Contact", path: "/contact" },
-          ].map((item) => (
-            <li
-              key={item.name}
-              className="hover:text-orange-400 cursor-pointer"
-            >
-              <Link to={item.path} className="block w-full h-full">
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <button className="bg-orange-500 px-4 py-2 rounded text-sm font-medium">
-          Book A Table
-        </button>
-
-        <FaBars className="lg:hidden text-xl" />
-      </nav>
+      <Navbar />
 
       {/* Hero */}
-      <section className="bg-gray-900 text-white text-center py-24">
-        <h1 className="text-4xl font-bold mb-4">Food Menu</h1>
-        <p className="text-sm uppercase tracking-widest text-gray-300">
-          Home / Pages / Menu
-        </p>
-      </section>
+      <div className="py-24 bg-gray-900 text-center">
+        <h1 className="text-5xl md:text-7xl text-white font-bold mb-6 animate-pulse">
+          Menu
+        </h1>
+        <nav className="flex justify-center uppercase text-sm font-medium tracking-widest">
+          <ol className="flex space-x-2 text-white">
+            <li>
+              <a href="/" className="text-orange-500">
+                Home
+              </a>
+            </li>
+            <li className="before:content-['/'] before:mr-2">Pages</li>
+            <li className="text-gray-400 before:content-['/'] before:mr-2">
+              Menu
+            </li>
+          </ol>
+        </nav>
+      </div>
 
       {/* Menu Section */}
       <section className="max-w-7xl mx-auto px-4 py-20">
@@ -148,61 +134,7 @@ const Menu = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 pt-16">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10">
-          <div>
-            <h4 className="text-orange-500 mb-4">Company</h4>
-            {["About Us", "Contact Us", "Reservation", "Privacy Policy"].map(
-              (item) => (
-                <p key={item} className="hover:text-white cursor-pointer">
-                  {item}
-                </p>
-              ),
-            )}
-          </div>
-
-          <div>
-            <h4 className="text-orange-500 mb-4">Contact</h4>
-            <p className="flex items-center gap-2">
-              <FaMapMarkerAlt /> New York, USA
-            </p>
-            <p className="flex items-center gap-2">
-              <FaPhoneAlt /> +012 345 67890
-            </p>
-            <p className="flex items-center gap-2">
-              <FaEnvelope /> info@example.com
-            </p>
-
-            <div className="flex gap-3 mt-4">
-              <FaTwitter />
-              <FaFacebookF />
-              <FaYoutube />
-              <FaLinkedinIn />
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-orange-500 mb-4">Opening</h4>
-            <p>Mon–Sat: 09AM – 09PM</p>
-            <p>Sunday: 10AM – 08PM</p>
-          </div>
-
-          <div>
-            <h4 className="text-orange-500 mb-4">Newsletter</h4>
-            <input
-              className="w-full px-4 py-3 rounded text-black"
-              placeholder="Your email"
-            />
-            <button className="bg-orange-500 w-full py-2 mt-2 rounded">
-              Sign Up
-            </button>
-          </div>
-        </div>
-
-        <div className="text-center py-6 text-sm border-t border-gray-700 mt-10">
-          © Your Site Name. All Rights Reserved.
-        </div>
-      </footer>
+      <Footer />
 
       {/* Back to top */}
       <button className="fixed bottom-6 right-6 bg-orange-500 text-white p-3 rounded-full">

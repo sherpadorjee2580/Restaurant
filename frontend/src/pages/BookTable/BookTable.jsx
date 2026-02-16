@@ -1,32 +1,34 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 import {
   MdOutlineCalendarMonth,
   MdOutlineAccessTime,
   MdOutlinePeople,
   MdOutlineMessage,
   MdCheckCircle,
+  MdArrowBack, // 2. Import Back Icon
 } from "react-icons/md";
 import { SectionHeading } from "../../components/SectionHeading/SectionHeading";
+
 export function BookTable() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [status, setStatus] = useState(null);
+  const navigate = useNavigate(); // 3. Initialize navigation
 
   const sendData = async () => {
-    const response = await fetch("http://localhost:5000/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: "Alex",
-        email: "alex@example.com",
-      }),
-    });
+    // Note: This logic is separate from the simulated handleSubmit below
+    try {
+      await fetch("http://localhost:5000/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: "Alex", email: "alex@example.com" }),
+      });
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
   };
 
-  // Removed Type Annotation for .jsx
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -40,7 +42,20 @@ export function BookTable() {
   };
 
   return (
-    <section className="py-20 bg-[#0F172A] relative overflow-hidden">
+    <section className="py-20 bg-[#0F172A] relative overflow-hidden min-h-screen">
+      {/* 4. BACK BUTTON - Visible on Desktop and Mobile */}
+      <div className="container mx-auto px-4 mb-6">
+        <button
+          onClick={() => navigate("/")}
+          className="group flex items-center gap-2 text-white/70 hover:text-[#FEA116] transition-all duration-300 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full border border-white/10 shadow-lg"
+        >
+          <MdArrowBack className="group-hover:-translate-x-1 transition-transform" />
+          <span className="text-sm font-medium uppercase tracking-wider">
+            Back to Home
+          </span>
+        </button>
+      </div>
+
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#FEA116] rounded-full blur-[100px]"></div>
@@ -111,7 +126,6 @@ export function BookTable() {
                       required
                       className="w-full bg-[#0F172A] border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FEA116] focus:ring-1 focus:ring-[#FEA116] transition-all [color-scheme:dark]"
                     />
-                    {/* React Icon: Calendar */}
                     <MdOutlineCalendarMonth className="absolute right-3 top-3 h-5 w-5 text-[#FEA116] pointer-events-none" />
                   </div>
                 </div>
@@ -135,7 +149,6 @@ export function BookTable() {
                       <option value="5">5 People</option>
                       <option value="6+">6+ People</option>
                     </select>
-                    {/* React Icon: Users */}
                     <MdOutlinePeople className="absolute right-3 top-3 h-5 w-5 text-[#FEA116] pointer-events-none" />
                   </div>
                 </div>
@@ -155,13 +168,11 @@ export function BookTable() {
                     className="w-full bg-[#0F172A] border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FEA116] focus:ring-1 focus:ring-[#FEA116] transition-all resize-none"
                     placeholder="Allergies, special occasion, etc."
                   ></textarea>
-                  {/* React Icon: Message */}
                   <MdOutlineMessage className="absolute right-3 top-3 h-5 w-5 text-[#FEA116] pointer-events-none" />
                 </div>
               </div>
 
               <button
-                onClick={sendData}
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-[#FEA116] hover:bg-[#e08e13] text-white font-bold py-4 px-6 rounded-md uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
