@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const Product = require("./model/productModel");
 dotenv.config();
 
 const PORT = process.env.PORT;
@@ -22,6 +23,19 @@ mongoose
 
 app.get("/", (req, res) => {
   res.send("Hello GUYS");
+});
+app.post("/product", async (req, res) => {
+  try {
+    const newProduct = new Product({
+      productName: req.body.productName,
+      price: req.body.price,
+    });
+    const saveProduct = await newProduct.save();
+
+    res.status(201).json(saveProduct);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 app.listen(PORT, () => {
